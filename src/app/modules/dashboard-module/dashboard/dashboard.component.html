@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="container">
+    <ul class="list">
+      <li><a routerLink="./users" routerLinkActive="active">Users</a></li>
+      <li><a routerLink="./posts" routerLinkActive="active">Posts</a></li>
+      <li><a routerLink="./comments" routerLinkActive="active">Comments</a></li>
+      <li><a routerLink="./todos" routerLinkActive="active">Todos</a></li>
+      <li><a style="color: red" (click)="onLogout()" routerLinkActive="active">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="loader-container">
+    <div *ngIf="!users.length" class="loader"></div>
+  </div>
+
+  <div *ngIf="users.length" class="button-container">
+
+    <button class="add-user" routerLink="./add-new-user">Add User</button>
+  </div>
+
+  <div *ngFor="let user of users" class="user">
+    <div class="user-info" routerLink="./{{user.id}}/user-info">
+      <h4><b>Name</b> -> "<b>{{user.name}}"</b></h4>
+      <p><b>Email</b> -> "{{user.email}}"</p>
+      <p><b>City</b> -> "{{user.address.city}}"</p>
+      <p><b>Phone</b> -> "{{user.phone}}"</p>
+    </div>
+  </div>
+
+</div>

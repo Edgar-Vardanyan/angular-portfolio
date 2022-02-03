@@ -1,0 +1,37 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)" class="form">
+
+  <button class="cancel-btn" type="button" (click)="onCancel()">Cancel</button>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Title
+      <input formControlName="title" placeholder="Title" class="input-field">
+    </label>
+
+    <div class="error"
+         *ngIf="editForm.get('title').errors && editForm.get('title').touched">
+      Please Provide Title.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Body
+      <input formControlName="body" placeholder="Body" class="input-field">
+    </label>
+
+    <div class="error"
+         *ngIf="editForm.get('body').errors && editForm.get('body').touched">
+      Please Provide Body.
+    </div>
+
+  </div>
+
+  <div>
+    <button type="submit" class="submit-btn" [disabled]="editForm.invalid">{{editingMode ? 'Edit' : 'Add'}}</button>
+  </div>
+
+</form>

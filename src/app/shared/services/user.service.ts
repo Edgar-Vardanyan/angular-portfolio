@@ -1,4 +1,4 @@
-import {User} from "../models";
+import {User} from "../interfaces";
 import {Observable} from "rxjs";
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
@@ -21,15 +21,15 @@ export class UserService {
     return this.http.get<User>(`users/${userId}`);
   }
 
-  public createUser(data: User) {
+  public createUser(data: User): Observable<Object> {
     return this.http.post('users', data);
   }
 
-  public updateUser(data: User, userId: number) {
+  public updateUser(data: User, userId: number): Observable<Object> {
     return this.http.put(`users/${userId}`, data);
   }
 
-  public deleteUser(userId: number) {
+  public deleteUser(userId: number): Observable<Object> {
     return this.http.delete(`users/${userId}`);
   }
 

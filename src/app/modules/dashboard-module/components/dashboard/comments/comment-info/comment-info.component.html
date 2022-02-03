@@ -1,0 +1,76 @@
+<div class="container">
+
+  <div class="btn-container">
+
+    <button class="edit-btn">
+      <a class="comment-navigate" routerLink="/dashboard/comments/{{commentId}}/edit-comment">Edit Comment</a>
+    </button>
+
+    <button class="edit-btn">
+      <a class="comment-navigate" routerLink="/dashboard/comments/add-new-comment">Create Comment</a>
+    </button>
+
+    <button class="delete-btn" (click)="onDelete()">
+      <a class="comment-navigate">Delete Comment</a>
+    </button>
+
+  </div>
+
+  <h1>Comment Info</h1>
+
+  <div class="loader-container">
+    <div *ngIf="!post || !user || !comment" class="loader"></div>
+  </div>
+
+  <div *ngIf="user && post && comment">
+
+    <div class="comment">
+
+      <div class="comment-info">
+        <p><b>Name</b> -> "{{comment.name}}"</p>
+        <p><b>Comment</b> -> "{{comment.body}}"</p>
+      </div>
+
+    </div>
+
+    <hr>
+    <h1>Post Info</h1>
+
+    <div class="post">
+
+      <div class="post-info">
+        <p><b>Title</b> -> "{{post.title}}"</p>
+        <p><b>Post</b> -> "{{post.body}}"</p>
+      </div>
+
+    </div>
+
+    <hr>
+    <h1>User Info</h1>
+
+    <div class="user">
+
+      <div class="user-info">
+
+        <h4><b>Name</b> -> "<b>{{user?.name}}"</b></h4>
+        <p><b>Email</b> -> "{{user.email}}"</p>
+        <p><b>Username</b> -> "{{user.username}}"</p>
+        <p><b>Phone</b> -> "{{user.phone}}"</p>
+        <p><b>Company Name</b> -> "{{user.company.name}}"</p>
+        <p><b>Website</b> -> "{{user.website}}"</p>
+        <p><b>City</b> -> "{{user.address.city}}"</p>
+        <p><b>Street</b> -> "{{user.address.street}}"</p>
+        <p><b>Zipcode</b> -> "{{user.address.zipcode}}"</p>
+        <p><b>Suite</b> -> "{{user.address.suite}}"</p>
+        <p><b>Latitude</b> -> "{{user.address.geo.lat}}"</p>
+        <p><b>Longitude</b> -> "{{user.address.geo.lng}}"</p>
+        <p><b>Catchphrase</b> -> "{{user.company.catchPhrase}}"</p>
+        <p><b>Bs</b> -> "{{user.company.bs}}"</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

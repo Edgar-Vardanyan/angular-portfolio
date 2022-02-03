@@ -1,4 +1,4 @@
-import {Todo} from "../models";
+import {Todo} from "../interfaces";
 import {Observable} from "rxjs";
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";

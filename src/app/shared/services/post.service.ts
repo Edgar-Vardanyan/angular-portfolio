@@ -1,4 +1,4 @@
-import {Post} from "../models";
+import {Post} from "../interfaces";
 import {Observable} from "rxjs";
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
@@ -21,15 +21,15 @@ export class PostService {
     return this.http.get<Post>(`posts/${postId}`);
   }
 
-  public updatePost(data: Post, postId: number) {
+  public updatePost(data: Post, postId: number): Observable<Object> {
     return this.http.put(`posts/${postId}`, data);
   }
 
-  public createPost(data: Post) {
+  public createPost(data: Post): Observable<Object> {
     return this.http.post('posts', data);
   }
 
-  public deletePost(postId: number) {
+  public deletePost(postId: number): Observable<Object> {
     return this.http.delete(`posts/${postId}`);
   }
 

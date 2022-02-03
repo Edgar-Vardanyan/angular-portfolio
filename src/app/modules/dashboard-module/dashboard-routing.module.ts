@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
+import {DashboardGuard, DeactivateGuard} from "../../shared/guards";
 import {PostsComponent} from "./components/dashboard/posts/posts.component";
 import {UsersComponent} from "./components/dashboard/users/users.component";
 import {TodosComponent} from "./components/dashboard/todos/todos.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
-import {DashboardGuard, DeactivateGuard} from "../../shared/guards";
 import {CommentsComponent} from "./components/dashboard/comments/comments.component";
 import {UserListComponent} from "./components/dashboard/users/user-list/user-list.component";
 import {UserInfoComponent} from "./components/dashboard/users/user-info/user-info.component";
@@ -18,7 +18,7 @@ import {CommentInfoComponent} from "./components/dashboard/comments/comment-info
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
     canActivate: [DashboardGuard],
     children: [

@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="loader-container">
+    <div *ngIf="!comments.length" class="loader"></div>
+  </div>
+
+  <div *ngFor="let comment of comments" class="comment">
+    <a class="navigate" routerLink="./{{comment.id}}/comment-info">
+
+      <div class="comment-info">
+        <p><b>Name</b> -> "{{comment.name}}"</p>
+        <p><b>Comment</b> -> "{{comment.body}}"</p>
+      </div>
+
+    </a>
+
+  </div>
+
+</div>

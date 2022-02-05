@@ -1,0 +1,214 @@
+<form (ngSubmit)="onSubmit(addForm)" [formGroup]="addForm" class="form">
+
+  <button (click)="onCancel()" class="cancel-btn" type="button">Cancel</button>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Name
+      <input class="input-field" formControlName="name" placeholder="Name">
+    </label>
+
+    <div *ngIf="addForm.get('name').errors && addForm.get('name').touched"
+         class="error">
+      Please Provide Name.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Username
+      <input class="input-field" formControlName="username" placeholder="Username">
+    </label>
+
+    <div *ngIf="addForm.get('username').errors && addForm.get('username').touched"
+         class="error">
+      Please Provide Username.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Email
+      <input class="input-field" formControlName="email" placeholder="Email">
+    </label>
+
+    <div *ngIf="addForm.get('email').errors.hasError('email') && addForm.get('email').touched"
+         class="error">
+      Please Provide Valid Email.
+    </div>
+
+    <div *ngIf="addForm.get('email').errors.hasError('required') && addForm.get('email').touched"
+         class="error">
+      Please Provide Email.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="address">
+
+    <label class="input-description">
+      Street
+      <input class="input-field" formControlName="street" placeholder="Street">
+    </label>
+
+    <div *ngIf="addForm.get('address.street').errors && addForm.get('address.street').touched"
+         class="error">
+      Please Provide Street.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="address">
+
+    <label class="input-description">
+      Suite
+      <input class="input-field" formControlName="suite" placeholder="Suite">
+    </label>
+
+    <div *ngIf="addForm.get('address.suite').errors && addForm.get('address.suite').touched"
+         class="error">
+      Please Provide Suite.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="address">
+
+    <label class="input-description">
+      City
+      <input class="input-field" formControlName="city" placeholder="City">
+    </label>
+
+    <div *ngIf="addForm.get('address.city').errors && addForm.get('address.city').touched"
+         class="error">
+      Please Provide City.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="address">
+
+    <label class="input-description">
+      Zipcode
+      <input class="input-field" formControlName="zipcode" placeholder="Zipcode">
+    </label>
+
+    <div *ngIf="addForm.get('address.zipcode').errors && addForm.get('address.zipcode').touched"
+         class="error">
+      Please Provide Zipcode.
+    </div>
+
+  </div>
+
+  <div formGroupName="address">
+
+    <div class="input-container" formGroupName="geo">
+
+      <label class="input-description">
+        Latitude
+        <input class="input-field" formControlName="lat" placeholder="Latitude">
+      </label>
+
+      <div *ngIf="addForm.get('address.geo.lat').errors && addForm.get('address.geo.lat').touched"
+           class="error">
+        Please Provide Latitude.
+      </div>
+
+    </div>
+
+    <div class="input-container" formGroupName="geo">
+
+      <label class="input-description">
+        Longitude
+        <input class="input-field" formControlName="lng" placeholder="Longitude">
+      </label>
+
+      <div *ngIf="addForm.get('address.geo.lng').errors && addForm.get('address.geo.lng').touched"
+           class="error">
+        Please Provide Longitude.
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Phone
+      <input class="input-field" formControlName="phone" placeholder="Phone">
+    </label>
+
+    <div *ngIf="addForm.get('phone').errors && addForm.get('phone').touched"
+         class="error">
+      Please Provide Phone.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Website
+      <input class="input-field" formControlName="website" placeholder="Website">
+    </label>
+
+    <div *ngIf="addForm.get('website').errors && addForm.get('website').touched"
+         class="error">
+      Please Provide Website.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="company">
+
+    <label class="input-description">
+      Company Name
+      <input class="input-field" formControlName="name" placeholder="Company Name">
+    </label>
+
+    <div *ngIf="addForm.get('company.name').errors && addForm.get('company.name').touched"
+         class="error">
+      Please Provide Company Name.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="company">
+
+    <label class="input-description">
+      Catchphrase
+      <input class="input-field" formControlName="catchPhrase" placeholder="Catchphrase">
+    </label>
+
+    <div *ngIf="addForm.get('company.catchPhrase').errors && addForm.get('company.catchPhrase').touched"
+         class="error">
+      Please Provide Catchphrase.
+    </div>
+
+  </div>
+
+  <div class="input-container" formGroupName="company">
+
+    <label class="input-description">
+      Bs
+      <input class="input-field" formControlName="bs" placeholder="Bs">
+    </label>
+
+    <div *ngIf="addForm.get('company.bs').errors && addForm.get('company.bs').touched"
+         class="error">
+      Please Provide Bs.
+    </div>
+
+  </div>
+
+  <div>
+    <button [disabled]="addForm.invalid" class="submit-btn" type="submit">{{editingMode ? 'Edit' : 'Add'}}</button>
+  </div>
+
+</form>

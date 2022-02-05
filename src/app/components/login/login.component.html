@@ -1,34 +1,35 @@
 <div class="login-container">
   <h2>Login</h2>
-  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+  <form (ngSubmit)="onSubmit(loginForm)" [formGroup]="loginForm" class="login-form">
 
-    <input formControlName="email" class="login-input" type="text" placeholder="Email">
+    <input class="login-input" formControlName="email" placeholder="Email" type="text">
 
-    <div class="email-error" *ngIf="loginForm.get('email').errors?.['required'] && loginForm.get('email').touched">
+    <div *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched" class="email-error">
       Please Enter Email
     </div>
 
-    <div class="email-error"
-         *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.['email']">
+    <div *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('email')"
+         class="email-error">
       Please Enter Valid Email
     </div>
 
-    <input formControlName="password" class="pass-input" type="password" placeholder="Password">
+    <input class="pass-input" formControlName="password" placeholder="Password" type="password">
 
-    <div class="password-error"
-         *ngIf="loginForm.get('password').errors?.['required'] && loginForm.get('password').touched">
+    <div *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched"
+         class="password-error">
       Please Enter Password
     </div>
 
-    <div class="password-error"
-         *ngIf="loginForm.get('password').errors?.['minlength'] && loginForm.get('password').touched">
+    <div *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched"
+         class="password-error">
       Please Enter Valid
       Password (Min. Length 8)<br>
-      <span>Current Length {{loginForm.get('password').value.length}}</span>
+      Current Length {{loginForm.get('password').value.length}}
     </div>
 
-    <button [class.button-loading]="btnLoading" [class.button-text]="btnLoading" class="submit-btn" type="submit"
-            [disabled]="!loginForm.valid"><span class="button-text">Login</span>
+    <button [class.button-loading]="btnLoading" [class.button-text]="btnLoading" [disabled]="!loginForm.valid"
+            class="submit-btn"
+            type="submit"><span class="button-text">Login</span>
     </button>
 
   </form>

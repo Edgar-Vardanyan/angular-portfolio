@@ -6,7 +6,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {httpInterceptorProviders} from "./shared/interceptors";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './components/login/login.component';
-import {DashboardModule} from "./modules/dashboard-module/dashboard.module";
+import {DashboardModule} from "./modules/dashboard/dashboard.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 

@@ -22,19 +22,19 @@ export class LoginComponent implements OnInit {
     this.initForm()
   }
 
-  private initForm(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
-    });
-  }
-
   public onSubmit(loginForm: FormGroup) {
     this.btnLoading = true;
     setTimeout(() => {
       this.newUser(JSON.stringify(loginForm.value))
       this.router.navigate(['dashboard']);
     }, 1500);
+  }
+
+  private initForm(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+    });
   }
 
   private newUser(userInfo: string): void {

@@ -1,0 +1,63 @@
+<div class="container">
+
+  <div class="btn-container">
+
+    <button class="edit-btn">
+      <a class="user-navigate" routerLink="/dashboard/users/{{userId}}/edit-user">Edit User</a>
+    </button>
+
+    <button (click)="onDelete()" class="delete-btn">
+      <a class="user-navigate">Delete User</a>
+    </button>
+
+  </div>
+
+  <h1>User Info</h1>
+
+  <div class="user">
+
+    <div *ngIf="user" class="user-info">
+
+      <h4><b>Name</b> -> "<b>{{user.name}}"</b></h4>
+      <p><b>Email</b> -> "{{user.email}}"</p>
+      <p><b>Username</b> -> "{{user.username}}"</p>
+      <p><b>Phone</b> -> "{{user.phone}}"</p>
+      <p><b>Company Name</b> -> "{{user.company.name}}"</p>
+      <p><b>Website</b> -> "{{user.website}}"</p>
+      <p><b>City</b> -> "{{user.address.city}}"</p>
+      <p><b>Street</b> -> "{{user.address.street}}"</p>
+      <p><b>Zipcode</b> -> "{{user.address.zipcode}}"</p>
+      <p><b>Suite</b> -> "{{user.address.suite}}"</p>
+      <p><b>Latitude</b> -> "{{user.address.geo.lat}}"</p>
+      <p><b>Longitude</b> -> "{{user.address.geo.lng}}"</p>
+      <p><b>Catchphrase</b> -> "{{user.company.catchPhrase}}"</p>
+      <p><b>Bs</b> -> "{{user.company.bs}}"</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<hr>
+
+
+<div *ngIf="posts" class="container">
+
+  <h1>User Posts</h1>
+
+  <div *ngFor="let post of posts" class="user">
+
+    <div class="user-info">
+
+      <h4><b>User</b> -> "{{user?.name}}"</h4>
+      <p><b>Title</b> -> "{{post.title}}"</p>
+      <p><b>Post</b> -> "{{post.body}}"</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+

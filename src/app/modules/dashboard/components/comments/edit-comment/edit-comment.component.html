@@ -1,0 +1,57 @@
+<form (ngSubmit)="onSubmit(editForm)" [formGroup]="editForm" class="form">
+
+  <button (click)="onCancel()" class="cancel-btn" type="button">Cancel</button>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Name
+      <input class="input-field" formControlName="name" placeholder="Name">
+    </label>
+
+    <div *ngIf="editForm.get('name').errors && editForm.get('name').touched"
+         class="error">
+      Please Provide Name.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Email
+      <input class="input-field" formControlName="email" placeholder="Email">
+    </label>
+
+    <div *ngIf="editForm.get('email').errors.hasError('email') && editForm.get('email').touched"
+         class="error">
+      Please Provide Valid Email.
+    </div>
+
+    <div *ngIf="editForm.get('email').errors.hasError('required') && editForm.get('email').touched"
+         class="error">
+      Please Provide Email.
+    </div>
+
+  </div>
+
+  <div class="input-container">
+
+    <label class="input-description">
+      Body
+      <input class="input-field" formControlName="body" placeholder="Body">
+    </label>
+
+    <div *ngIf="editForm.get('body').errors && editForm.get('body').touched"
+         class="error">
+      Please Provide Body.
+    </div>
+
+  </div>
+
+  <div>
+    <button [disabled]="editForm.invalid" class="submit-btn" type="submit">{{editingMode ? 'Edit' : 'Add'}}</button>
+  </div>
+
+
+</form>
